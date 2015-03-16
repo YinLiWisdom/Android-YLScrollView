@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">YinLi-YLScrollView</string>
+
+    <string name="default_text_indicator">Scroll to view more</string>
+
+    <string name="short_sample_text">This is a smart customised ScrollView for Android, which has the ability to automatically measure your content length  and decide whether a text-indicator is in need or not.</string>
+    <string name="long_sample_text">This is a smart customised ScrollView for Android, which has the ability to automatically measure your content length automatically and decide whether a text-indicator is in need or not. Within this text-indicator, users are given a more visualised interface (compared with default Android ScrollView). \n\nThis is a smart customised ScrollView for Android, which has the ability to measure your content length automatically and decide whether a text-indicator is in need or not. Within this text-indicator, users are given a more visualised interface (compared with default Android ScrollView). \n\nThis is a smart customised ScrollView for Android, which has the ability to measure your content length automatically and decide whether a text-indicator is in need or not. Within this text-indicator, users are given a more visualised interface (compared with default Android ScrollView).</string>
+</resources>
