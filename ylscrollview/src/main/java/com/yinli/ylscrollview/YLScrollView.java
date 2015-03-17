@@ -6,6 +6,7 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -29,6 +30,14 @@ public class YLScrollView extends FrameLayout {
     private float mTextSize;
     private int mTextColor;
 
+    public YLScrollView(Context context) {
+        this(context, null);
+    }
+
+    public YLScrollView(Context context, AttributeSet attrs) {
+        this(context, attrs, 0);
+    }
+
     public YLScrollView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
 
@@ -43,9 +52,9 @@ public class YLScrollView extends FrameLayout {
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.YLScrollView, defStyle, 0);
         try {
             mAnimType = typedArray.getInt(R.styleable.YLScrollView_animationType, defaultAnimType);
-            mText = typedArray.getString(R.styleable.YLScrollView_android_text);
-            mTextSize = typedArray.getDimension(R.styleable.YLScrollView_android_textSize, defaultTextSize);
-            mTextColor = typedArray.getColor(R.styleable.YLScrollView_android_textColor, defaultTextColor);
+            mText = typedArray.getString(R.styleable.YLScrollView_text);
+            mTextSize = typedArray.getDimension(R.styleable.YLScrollView_textSize, defaultTextSize);
+            mTextColor = typedArray.getColor(R.styleable.YLScrollView_textColor, defaultTextColor);
 
             if (mText == null) {
                 mText = defaultText;
@@ -69,7 +78,7 @@ public class YLScrollView extends FrameLayout {
         params2.gravity = Gravity.CENTER_VERTICAL;
         mTextView.setRotation(270f);
         mTextView.setText(mText);
-        mTextView.setTextSize(mTextSize);
+        mTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX, mTextSize);
         mTextView.setTextColor(mTextColor);
         mTextView.setLayoutParams(params2);
 

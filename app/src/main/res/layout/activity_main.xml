@@ -1,5 +1,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -7,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:weightSum="2"
+    android:weightSum="3"
     tools:context=".MainActivity">
 
     <com.yinli.ylscrollview.YLScrollView
@@ -32,6 +33,28 @@
     <com.yinli.ylscrollview.YLScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/long_sample_text" />
+
+    </com.yinli.ylscrollview.YLScrollView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"/>
+
+    <com.yinli.ylscrollview.YLScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        custom:textColor="@color/custom_color"
+        custom:textSize="16sp"
+        custom:text="Please scroll me"
         android:layout_weight="1">
 
         <TextView
