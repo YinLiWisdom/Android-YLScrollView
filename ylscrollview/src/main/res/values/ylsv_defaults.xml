@@ -1,2 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <color name="default_indicator_text_color">@color/ylsv_light_gray</color>
+    <integer name="default_indicator_animation_type">0</integer>
+    <dimen name="default_indicator_text_size">12sp</dimen>
+    <string name="default_indicator_text">@string/indicator_text</string>
+</resources>

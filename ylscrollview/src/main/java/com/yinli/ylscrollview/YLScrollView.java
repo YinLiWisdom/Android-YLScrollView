@@ -1,6 +1,8 @@
 package com.yinli.ylscrollview;
 
 import android.content.Context;
+import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.util.AttributeSet;
@@ -21,8 +23,37 @@ public class YLScrollView extends FrameLayout {
     private LinearLayout mContainer;
     private int indicatorVisibility;
 
-    public YLScrollView(Context context, AttributeSet attrs) {
-        super(context, attrs);
+    /* Style attributes */
+    private int mAnimType;
+    private String mText;
+    private float mTextSize;
+    private int mTextColor;
+
+    public YLScrollView(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+
+        /* Load default values from resources */
+        final Resources res = getResources();
+        final int defaultAnimType = res.getInteger(R.integer.default_indicator_animation_type);
+        final String defaultText = res.getString(R.string.default_indicator_text);
+        final float defaultTextSize = res.getDimension(R.dimen.default_indicator_text_size);
+        final int defaultTextColor = res.getColor(R.color.default_indicator_text_color);
+
+        /* Retrieve styles attributes */
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.YLScrollView, defStyle, 0);
+        try {
+            mAnimType = typedArray.getInt(R.styleable.YLScrollView_animationType, defaultAnimType);
+            mText = typedArray.getString(R.styleable.YLScrollView_android_text);
+            mTextSize = typedArray.getDimension(R.styleable.YLScrollView_android_textSize, defaultTextSize);
+            mTextColor = typedArray.getColor(R.styleable.YLScrollView_android_textColor, defaultTextColor);
+
+            if (mText == null) {
+                mText = defaultText;
+            }
+        } finally {
+            typedArray.recycle();
+        }
+
         init(context);
     }
 
@@ -37,8 +68,9 @@ public class YLScrollView extends FrameLayout {
                 new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         params2.gravity = Gravity.CENTER_VERTICAL;
         mTextView.setRotation(270f);
-        mTextView.setText("Scroll to view more");
-        mTextView.setTextColor(Color.LTGRAY);
+        mTextView.setText(mText);
+        mTextView.setTextSize(mTextSize);
+        mTextView.setTextColor(mTextColor);
         mTextView.setLayoutParams(params2);
 
         mScrollView = new ScrollView(mContext);

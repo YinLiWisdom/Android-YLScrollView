@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/YLScrollView/YLScrollView.iml" filepath="$PROJECT_DIR$/YLScrollView/YLScrollView.iml" />
       <module fileurl="file://$PROJECT_DIR$/YinLi-YLScrollView.iml" filepath="$PROJECT_DIR$/YinLi-YLScrollView.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ylscrollview/ylscrollview.iml" filepath="$PROJECT_DIR$/ylscrollview/ylscrollview.iml" />
     </modules>
   </component>
 </project>

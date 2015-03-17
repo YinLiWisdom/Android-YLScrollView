@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">YLScrollVIew</string>
+    <string name="indicator_text">Scroll to view more</string>
 </resources>
