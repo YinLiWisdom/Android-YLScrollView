@@ -22,7 +22,7 @@ public class YLScrollView extends FrameLayout {
     private ScrollView mScrollView;
     private TextView mTextView;
     private LinearLayout mContainer;
-    private int indicatorVisibility;
+    private int indicatorVisibility = -1;
 
     /* Style attributes */
     private int mAnimType;
@@ -67,6 +67,7 @@ public class YLScrollView extends FrameLayout {
     }
 
     private void init(Context mContext) {
+
         mContainer = new LinearLayout(mContext);
         FrameLayout.LayoutParams params0 =
                 new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT);
@@ -87,6 +88,42 @@ public class YLScrollView extends FrameLayout {
                 new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
         mScrollView.setScrollBarStyle(SCROLLBARS_OUTSIDE_OVERLAY);
         mScrollView.setLayoutParams(params1);
+    }
+
+    public int getAnimType() {
+        return mAnimType;
+    }
+
+    public void setAnimType(int animType) {
+        this.mAnimType = animType;
+        invalidate();
+    }
+
+    public String getText() {
+        return mText;
+    }
+
+    public void setText(String text) {
+        mTextView.setText(text);
+        invalidate();
+    }
+
+    public float getTextSize() {
+        return mTextView.getTextSize();
+    }
+
+    public void setTextSize(float textSize) {
+        mTextView.setTextSize(textSize);
+        invalidate();
+    }
+
+    public int getTextColor() {
+        return mTextView.getCurrentTextColor();
+    }
+
+    public void setTextColor(int textColor) {
+        mTextView.setTextColor(textColor);
+        invalidate();
     }
 
     @Override
@@ -111,27 +148,26 @@ public class YLScrollView extends FrameLayout {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-
-        if (indicatorVisibility == VISIBLE) {
-            /* Pivot is the geometric center of the text */
-            int textWidth = mTextView.getWidth() / 2;
-            int textSize = (int) mTextView.getTextSize();
-
-            int gap = textWidth - textSize;
-            LinearLayout.LayoutParams params2 = (LinearLayout.LayoutParams) mTextView.getLayoutParams();
-            params2.setMargins(0, 0, -gap, 0);
-            mTextView.setLayoutParams(params2);
-
-            LinearLayout.LayoutParams params1 = (LinearLayout.LayoutParams) mScrollView.getLayoutParams();
-            params1.weight = 1.0f;
-            params1.setMargins(0, 0, -gap, 0);
-            mScrollView.setLayoutParams(params1);
-        }
     }
 
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         super.onLayout(changed, l, t, r, b);
+
+        /* Pivot is the geometric center of the text */
+        int textWidth = mTextView.getMeasuredWidth() / 2;
+        int textSize = (int) mTextView.getTextSize();
+
+        int gap = textWidth - textSize;
+
+        LinearLayout.LayoutParams params2 = (LinearLayout.LayoutParams) mTextView.getLayoutParams();
+        params2.setMargins(0, 0, -gap, 0);
+        mTextView.setLayoutParams(params2);
+
+        LinearLayout.LayoutParams params1 = (LinearLayout.LayoutParams) mScrollView.getLayoutParams();
+        params1.weight = 1.0f;
+        params1.setMargins(0, 0, -gap, 0);
+        mScrollView.setLayoutParams(params1);
 
         int containerHeight = getHeight();
 
@@ -140,5 +176,7 @@ public class YLScrollView extends FrameLayout {
 
         indicatorVisibility = contentHeight > containerHeight ? VISIBLE : GONE;
         mTextView.setVisibility(indicatorVisibility);
+
     }
+
 }

@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.yinli.yinli_ylscrollview"
-        minSdkVersion 10
+        minSdkVersion 11
         targetSdkVersion 21
         versionCode 1
         versionName "1.0"
@@ -21,6 +21,7 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:21.0.3'
     compile project(':ylscrollview')
+    compile 'com.android.support:appcompat-v7:21.0.3'
+    compile 'com.android.support:support-v4:21.0.3'
 }
