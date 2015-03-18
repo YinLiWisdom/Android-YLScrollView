@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -12,7 +11,6 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
-import android.widget.TextView;
 
 /**
  * Created by Yin Li on 16/03/15.
@@ -20,15 +18,17 @@ import android.widget.TextView;
 public class YLScrollView extends FrameLayout {
 
     private ScrollView mScrollView;
-    private TextView mTextView;
+    private YLVerticalTextView mVerticalTextView;
     private LinearLayout mContainer;
     private int indicatorVisibility = -1;
+    private int mTextViewMeasuredWidth;
 
     /* Style attributes */
     private int mAnimType;
     private String mText;
     private float mTextSize;
     private int mTextColor;
+
 
     public YLScrollView(Context context) {
         this(context, null);
@@ -73,19 +73,19 @@ public class YLScrollView extends FrameLayout {
                 new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT);
         mContainer.setLayoutParams(params0);
 
-        mTextView = new TextView(mContext);
+        mVerticalTextView = new YLVerticalTextView(mContext);
         LinearLayout.LayoutParams params2 =
                 new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         params2.gravity = Gravity.CENTER_VERTICAL;
-        mTextView.setRotation(270f);
-        mTextView.setText(mText);
-        mTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX, mTextSize);
-        mTextView.setTextColor(mTextColor);
-        mTextView.setLayoutParams(params2);
+        mVerticalTextView.setText(mText);
+        mVerticalTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX, mTextSize);
+        mVerticalTextView.setTextColor(mTextColor);
+        mVerticalTextView.setLayoutParams(params2);
 
         mScrollView = new ScrollView(mContext);
         LinearLayout.LayoutParams params1 =
                 new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+        params1.weight = 1.0f;
         mScrollView.setScrollBarStyle(SCROLLBARS_OUTSIDE_OVERLAY);
         mScrollView.setLayoutParams(params1);
     }
@@ -104,25 +104,25 @@ public class YLScrollView extends FrameLayout {
     }
 
     public void setText(String text) {
-        mTextView.setText(text);
+        mVerticalTextView.setText(text);
         invalidate();
     }
 
     public float getTextSize() {
-        return mTextView.getTextSize();
+        return mVerticalTextView.getTextSize();
     }
 
     public void setTextSize(float textSize) {
-        mTextView.setTextSize(textSize);
+        mVerticalTextView.setTextSize(textSize);
         invalidate();
     }
 
     public int getTextColor() {
-        return mTextView.getCurrentTextColor();
+        return mVerticalTextView.getCurrentTextColor();
     }
 
     public void setTextColor(int textColor) {
-        mTextView.setTextColor(textColor);
+        mVerticalTextView.setTextColor(textColor);
         invalidate();
     }
 
@@ -134,8 +134,8 @@ public class YLScrollView extends FrameLayout {
         removeView(subView);
         mScrollView.addView(subView);
 
-        mContainer.addView(mScrollView);
-        mContainer.addView(mTextView);
+        mContainer.addView(mScrollView, 0);
+        mContainer.addView(mVerticalTextView);
 
         addView(mContainer);
     }
@@ -154,29 +154,32 @@ public class YLScrollView extends FrameLayout {
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         super.onLayout(changed, l, t, r, b);
 
-        /* Pivot is the geometric center of the text */
-        int textWidth = mTextView.getMeasuredWidth() / 2;
-        int textSize = (int) mTextView.getTextSize();
+        /* if (changed) {
 
-        int gap = textWidth - textSize;
+            *//* Pivot is the geometric center of the text *//*
+            final int textWidth = mVerticalTextView.getMeasuredWidth() / 2;
+            final int textSize = (int) mVerticalTextView.getTextSize();
 
-        LinearLayout.LayoutParams params2 = (LinearLayout.LayoutParams) mTextView.getLayoutParams();
-        params2.setMargins(0, 0, -gap, 0);
-        mTextView.setLayoutParams(params2);
+            final int gap = textWidth - textSize;
 
-        LinearLayout.LayoutParams params1 = (LinearLayout.LayoutParams) mScrollView.getLayoutParams();
-        params1.weight = 1.0f;
-        params1.setMargins(0, 0, -gap, 0);
-        mScrollView.setLayoutParams(params1);
+            LinearLayout.LayoutParams params2 = (LinearLayout.LayoutParams) mVerticalTextView.getLayoutParams();
+            params2.setMargins(0, 0, -gap, 0);
+            mVerticalTextView.setLayoutParams(params2);
 
-        int containerHeight = getHeight();
+            LinearLayout.LayoutParams params1 = (LinearLayout.LayoutParams) mScrollView.getLayoutParams();
+            params1.setMargins(0, 0, -gap, 0);
+            mScrollView.setLayoutParams(params1);
 
-        View view = mScrollView.getChildAt(0);
-        int contentHeight = view.getHeight();
+            int containerHeight = getMeasuredHeight();
+            View view = mScrollView.getChildAt(0);
+            int contentHeight = view.getMeasuredHeight();
+            indicatorVisibility = contentHeight > containerHeight ? VISIBLE : GONE;
+            mVerticalTextView.setVisibility(indicatorVisibility);
 
-        indicatorVisibility = contentHeight > containerHeight ? VISIBLE : GONE;
-        mTextView.setVisibility(indicatorVisibility);
-
+            invalidate();
+            requestLayout();
+        }*/
     }
+
 
 }

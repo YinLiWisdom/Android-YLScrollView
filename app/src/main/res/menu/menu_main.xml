@@ -13,6 +13,9 @@
             <item
                 android:id="@+id/sample2"
                 android:title="@string/sample2_title"/>
+            <item
+                android:id="@+id/sample3"
+                android:title="@string/sample3_title" />
         </menu>
 
         </item>

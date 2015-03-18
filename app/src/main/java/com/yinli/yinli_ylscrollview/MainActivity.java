@@ -1,10 +1,9 @@
 package com.yinli.yinli_ylscrollview;
 
 import android.net.Uri;
-import android.support.v4.app.Fragment;
+import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -55,6 +54,12 @@ public class MainActivity extends ActionBarActivity implements Sample1Fragment.O
         }
         if (id == R.id.sample2) {
             Sample2Fragment fragment = new Sample2Fragment();
+            transaction.replace(R.id.fragmentContainer, fragment);
+            transaction.commit();
+            return true;
+        }
+        if (id == R.id.sample3) {
+            Sample3Fragment fragment = new Sample3Fragment();
             transaction.replace(R.id.fragmentContainer, fragment);
             transaction.commit();
             return true;

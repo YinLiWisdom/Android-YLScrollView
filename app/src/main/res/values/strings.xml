@@ -3,6 +3,7 @@
     <string name="action_more">More</string>
     <string name="sample1_title">Sample 1</string>
     <string name="sample2_title">Sample 2</string>
+    <string name="sample3_title">Sample 3</string>
 
     <string name="default_text_indicator">Scroll to view more</string>
 
@@ -11,4 +12,6 @@
 
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_main_activity2">MainActivity2Activity</string>
+
 </resources>

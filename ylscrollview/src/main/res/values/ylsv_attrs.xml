@@ -16,4 +16,9 @@
         <attr name="textColor" format="color"/>
     </declare-styleable>
 
+    <declare-styleable name="YLVerticalTextView">
+
+        <!-- Identity of Text begins from top or bottom -->
+        <attr name="topDown" format="boolean" />
+    </declare-styleable>
 </resources>
