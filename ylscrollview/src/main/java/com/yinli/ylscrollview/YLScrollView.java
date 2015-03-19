@@ -18,7 +18,7 @@ import android.widget.ScrollView;
 public class YLScrollView extends FrameLayout {
 
     private ScrollView mScrollView;
-    private YLVerticalTextView mVerticalTextView;
+    private YLVerticalTextLabelView mVerticalTextView;
     private LinearLayout mContainer;
     private int indicatorVisibility = -1;
     private int mTextViewMeasuredWidth;
@@ -73,7 +73,7 @@ public class YLScrollView extends FrameLayout {
                 new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT);
         mContainer.setLayoutParams(params0);
 
-        mVerticalTextView = new YLVerticalTextView(mContext);
+        mVerticalTextView = new YLVerticalTextLabelView(mContext);
         LinearLayout.LayoutParams params2 =
                 new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         params2.gravity = Gravity.CENTER_VERTICAL;
@@ -154,9 +154,9 @@ public class YLScrollView extends FrameLayout {
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         super.onLayout(changed, l, t, r, b);
 
-        /* if (changed) {
+         if (changed) {
 
-            *//* Pivot is the geometric center of the text *//*
+/*            *//* Pivot is the geometric center of the text *//*
             final int textWidth = mVerticalTextView.getMeasuredWidth() / 2;
             final int textSize = (int) mVerticalTextView.getTextSize();
 
@@ -168,17 +168,14 @@ public class YLScrollView extends FrameLayout {
 
             LinearLayout.LayoutParams params1 = (LinearLayout.LayoutParams) mScrollView.getLayoutParams();
             params1.setMargins(0, 0, -gap, 0);
-            mScrollView.setLayoutParams(params1);
+            mScrollView.setLayoutParams(params1);*/
 
             int containerHeight = getMeasuredHeight();
             View view = mScrollView.getChildAt(0);
             int contentHeight = view.getMeasuredHeight();
             indicatorVisibility = contentHeight > containerHeight ? VISIBLE : GONE;
             mVerticalTextView.setVisibility(indicatorVisibility);
-
-            invalidate();
-            requestLayout();
-        }*/
+        }
     }
 
 

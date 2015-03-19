@@ -10,25 +10,25 @@ import android.widget.TextView;
 /**
  * Created by Yin Li on 18/03/15.
  */
-public class YLVerticalTextView extends TextView{
+public class YLVerticalTextLabelView extends TextView{
 
     private boolean isTopDown;
 
-    public YLVerticalTextView(Context context) {
+    public YLVerticalTextLabelView(Context context) {
         super(context, null);
     }
 
-    public YLVerticalTextView(Context context, AttributeSet attrs) {
+    public YLVerticalTextLabelView(Context context, AttributeSet attrs) {
         super(context, attrs, 0);
     }
 
-    public YLVerticalTextView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public YLVerticalTextLabelView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
         /* Retrieve styles attributes */
-        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.YLVerticalTextView, defStyleAttr, 0);
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.YLVerticalTextLabelView, defStyleAttr, 0);
         try {
-            isTopDown = typedArray.getBoolean(R.styleable.YLVerticalTextView_topDown, true);
+            isTopDown = typedArray.getBoolean(R.styleable.YLVerticalTextLabelView_topDown, true);
         } finally {
             typedArray.recycle();
         }

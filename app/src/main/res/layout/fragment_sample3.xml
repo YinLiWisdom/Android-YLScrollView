@@ -11,17 +11,12 @@
     android:weightSum="2"
     tools:context="com.yinli.yinli_ylscrollview.Sample3Fragment">
 
-    <com.yinli.ylscrollview.YLScrollView
+
+    <com.yinli.ylscrollview.YLVerticalGraphicLabelView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1">
+        android:layout_weight="1" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/long_sample_text" />
-
-    </com.yinli.ylscrollview.YLScrollView>
 
     <View
         android:layout_width="match_parent"
