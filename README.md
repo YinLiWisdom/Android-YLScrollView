@@ -4,7 +4,7 @@ This is a smart customised ScrollView for Android, which has the ability to auto
 <b>Here is the demo screenshot:</b>
 <br/>
 <p align="center">
-<img src="./screenshot/2015-03-17.png" width="350" />
-<img src="./screenshot/2015-03-17.png" width="350" />
+<img src="./screenshot/2015-03-19-013929.png" width="350" />
+<img src="./screenshot/2015-03-19-014024.png" width="350" />
 </p>
 
