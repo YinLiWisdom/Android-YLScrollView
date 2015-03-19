@@ -19,6 +19,7 @@ public class YLScrollView extends FrameLayout {
 
     private ScrollView mScrollView;
     private YLVerticalTextLabelView mVerticalTextView;
+    private YLVerticalGraphicLabelView mVerticalGraphicView;
     private LinearLayout mContainer;
     private int indicatorVisibility = -1;
     private int mTextViewMeasuredWidth;
@@ -27,8 +28,27 @@ public class YLScrollView extends FrameLayout {
     private int mAnimType;
     private String mText;
     private float mTextSize;
-    private int mTextColor;
+    private int mColor;
+    private IndicatorType mType;
 
+    public enum IndicatorType {
+        Text(0), Graphic(1);
+
+        public final int value;
+
+        private IndicatorType(int value) {
+            this.value = value;
+        }
+
+        public static IndicatorType fromValue(int value) {
+            for (IndicatorType type : IndicatorType.values()) {
+                if (type.value == value) {
+                    return type;
+                }
+            }
+            return null;
+        }
+    }
 
     public YLScrollView(Context context) {
         this(context, null);
@@ -46,7 +66,8 @@ public class YLScrollView extends FrameLayout {
         final int defaultAnimType = res.getInteger(R.integer.default_indicator_animation_type);
         final String defaultText = res.getString(R.string.default_indicator_text);
         final float defaultTextSize = res.getDimension(R.dimen.default_indicator_text_size);
-        final int defaultTextColor = res.getColor(R.color.default_indicator_text_color);
+        final int defaultTextColor = res.getColor(R.color.default_indicator_fill_color);
+        final int defaultIndicatorType = res.getInteger(R.integer.default_indicator_type);
 
         /* Retrieve styles attributes */
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.YLScrollView, defStyle, 0);
@@ -54,7 +75,8 @@ public class YLScrollView extends FrameLayout {
             mAnimType = typedArray.getInt(R.styleable.YLScrollView_animationType, defaultAnimType);
             mText = typedArray.getString(R.styleable.YLScrollView_text);
             mTextSize = typedArray.getDimension(R.styleable.YLScrollView_textSize, defaultTextSize);
-            mTextColor = typedArray.getColor(R.styleable.YLScrollView_textColor, defaultTextColor);
+            mColor = typedArray.getColor(R.styleable.YLScrollView_fillColor, defaultTextColor);
+            mType = IndicatorType.fromValue(typedArray.getInteger(R.styleable.YLScrollView_type, defaultIndicatorType));
 
             if (mText == null) {
                 mText = defaultText;
@@ -79,8 +101,15 @@ public class YLScrollView extends FrameLayout {
         params2.gravity = Gravity.CENTER_VERTICAL;
         mVerticalTextView.setText(mText);
         mVerticalTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX, mTextSize);
-        mVerticalTextView.setTextColor(mTextColor);
+        mVerticalTextView.setTextColor(mColor);
         mVerticalTextView.setLayoutParams(params2);
+
+        mVerticalGraphicView = new YLVerticalGraphicLabelView(mContext);
+        float minWidth = Math.max(mVerticalGraphicView.getMidPointRadius() + mVerticalGraphicView.getStrokeWidth(), mVerticalGraphicView.getArrowXLen() + +mVerticalGraphicView.getStrokeWidth());
+        LinearLayout.LayoutParams params3 =
+                new LinearLayout.LayoutParams((int) (minWidth + 30), LinearLayout.LayoutParams.MATCH_PARENT);
+        mVerticalGraphicView.setFillColor(mColor);
+        mVerticalGraphicView.setLayoutParams(params3);
 
         mScrollView = new ScrollView(mContext);
         LinearLayout.LayoutParams params1 =
@@ -117,13 +146,38 @@ public class YLScrollView extends FrameLayout {
         invalidate();
     }
 
-    public int getTextColor() {
-        return mVerticalTextView.getCurrentTextColor();
+    public int getIndicatorColor() {
+        int color = 0;
+        switch (getIndicatorType()) {
+            case Text:
+                color = mVerticalTextView.getCurrentTextColor();
+                break;
+            case Graphic:
+                color = mVerticalGraphicView.getFillColor();
+                break;
+
+        }
+        return color;
     }
 
-    public void setTextColor(int textColor) {
-        mVerticalTextView.setTextColor(textColor);
+    public void setIndicatorColor(int color) {
+        switch (getIndicatorType()) {
+            case Text:
+                mVerticalTextView.setTextColor(color);
+                break;
+            case Graphic:
+                mVerticalGraphicView.setFillColor(color);
+                break;
+        }
         invalidate();
+    }
+
+    public IndicatorType getIndicatorType() {
+        return mType;
+    }
+
+    public void setIndicatorType(IndicatorType mType) {
+        this.mType = mType;
     }
 
     @Override
@@ -135,7 +189,14 @@ public class YLScrollView extends FrameLayout {
         mScrollView.addView(subView);
 
         mContainer.addView(mScrollView, 0);
-        mContainer.addView(mVerticalTextView);
+        switch (mType) {
+            case Text:
+                mContainer.addView(mVerticalTextView);
+                break;
+            case Graphic:
+                mContainer.addView(mVerticalGraphicView);
+                break;
+        }
 
         addView(mContainer);
     }
@@ -154,7 +215,7 @@ public class YLScrollView extends FrameLayout {
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         super.onLayout(changed, l, t, r, b);
 
-         if (changed) {
+        if (changed) {
 
 /*            *//* Pivot is the geometric center of the text *//*
             final int textWidth = mVerticalTextView.getMeasuredWidth() / 2;
@@ -174,7 +235,15 @@ public class YLScrollView extends FrameLayout {
             View view = mScrollView.getChildAt(0);
             int contentHeight = view.getMeasuredHeight();
             indicatorVisibility = contentHeight > containerHeight ? VISIBLE : GONE;
-            mVerticalTextView.setVisibility(indicatorVisibility);
+            switch (mType) {
+                case Text:
+                    mVerticalTextView.setVisibility(indicatorVisibility);
+                    break;
+                case Graphic:
+                    mVerticalGraphicView.setVisibility(indicatorVisibility);
+                    break;
+            }
+
         }
     }
 

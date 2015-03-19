@@ -27,8 +27,8 @@ public class Sample2Fragment extends Fragment {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_sample2, container, false);
 
         YLScrollView ylScrollView = (YLScrollView) rootView.findViewById(R.id.sampleScrollView);
-        ylScrollView.setTextColor(getResources().getColor(R.color.custom_color));
-        ylScrollView.setText("Scroll Me");
+        ylScrollView.setIndicatorColor(getResources().getColor(R.color.custom_color));
+        ylScrollView.setText("可滚动界面");
         ylScrollView.setTextSize(16f);
 
         return rootView;

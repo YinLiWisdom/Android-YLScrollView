@@ -54,7 +54,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         custom:text="Please scroll me"
-        custom:textColor="@color/custom_color"
+        custom:fillColor="@color/custom_color"
         custom:textSize="16sp">
 
         <TextView
