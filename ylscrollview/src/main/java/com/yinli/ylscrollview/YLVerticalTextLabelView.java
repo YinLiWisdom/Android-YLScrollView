@@ -28,7 +28,7 @@ public class YLVerticalTextLabelView extends TextView{
         /* Retrieve styles attributes */
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.YLVerticalTextLabelView, defStyleAttr, 0);
         try {
-            isTopDown = typedArray.getBoolean(R.styleable.YLVerticalTextLabelView_topDown, true);
+            isTopDown = typedArray.getBoolean(R.styleable.YLVerticalTextLabelView_topDown, false);
         } finally {
             typedArray.recycle();
         }
@@ -52,11 +52,11 @@ public class YLVerticalTextLabelView extends TextView{
         canvas.save();
 
         if (isTopDown) {
-            canvas.translate(getMeasuredWidth(), 0);
-            canvas.rotate(90);
-        } else {
-            canvas.translate(0, getMeasuredHeight());
             canvas.rotate(-90);
+            canvas.translate(-getMeasuredHeight(), 0);
+        } else {
+            canvas.rotate(90);
+            canvas.translate(0, -getMeasuredWidth());
         }
 
         canvas.translate(getCompoundPaddingLeft(), getExtendedPaddingTop());
