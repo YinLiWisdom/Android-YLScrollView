@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">YinLi-YLScrollView</string>
+    <string name="app_name">YLScrollView Demo</string>
     <string name="action_more">More</string>
     <string name="sample1_title">Sample 1</string>
     <string name="sample2_title">Sample 2</string>
