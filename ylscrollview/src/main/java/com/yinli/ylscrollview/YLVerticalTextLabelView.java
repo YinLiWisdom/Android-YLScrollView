@@ -15,11 +15,11 @@ public class YLVerticalTextLabelView extends TextView{
     private boolean isTopDown;
 
     public YLVerticalTextLabelView(Context context) {
-        super(context, null);
+        this(context, null);
     }
 
     public YLVerticalTextLabelView(Context context, AttributeSet attrs) {
-        super(context, attrs, 0);
+        this(context, attrs, 0);
     }
 
     public YLVerticalTextLabelView(Context context, AttributeSet attrs, int defStyleAttr) {

@@ -22,11 +22,11 @@ public class YLVerticalGraphicLabelView extends View {
     private int fillColor;
 
     public YLVerticalGraphicLabelView(Context context) {
-        super(context, null);
+        this(context, null);
     }
 
     public YLVerticalGraphicLabelView(Context context, AttributeSet attrs) {
-        super(context, attrs, 0);
+        this(context, attrs, 0);
     }
 
     public YLVerticalGraphicLabelView(Context context, AttributeSet attrs, int defStyleAttr) {

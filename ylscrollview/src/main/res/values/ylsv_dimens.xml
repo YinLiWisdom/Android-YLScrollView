@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="graphic_mid_point_radius">5dp</dimen>
+    <dimen name="graphic_mid_point_radius">3dp</dimen>
     <dimen name="graphic_stroke_width">2dp</dimen>
-    <dimen name="graphic_arrow_width">10dp</dimen>
+    <dimen name="graphic_arrow_width">5dp</dimen>
     <dimen name="graphic_arrow_height">10dp</dimen>
 </resources>
