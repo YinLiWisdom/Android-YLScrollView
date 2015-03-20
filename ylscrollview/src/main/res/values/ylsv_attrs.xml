@@ -17,7 +17,7 @@
         <!-- Content of the indicator text -->
         <attr name="text" format="string"/>
         <!-- Color of the indicator for both text and graphic -->
-        <attr name="fillColor" format="color"/>
+        <attr name="indicatorColor" format="color"/>
     </declare-styleable>
 
     <declare-styleable name="YLVerticalTextLabelView">

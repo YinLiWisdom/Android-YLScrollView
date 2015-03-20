@@ -112,6 +112,7 @@
         android:layout_weight="1">
 
         <TextView
+            android:id="@+id/sampleContent"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/sample_content_2_3" />

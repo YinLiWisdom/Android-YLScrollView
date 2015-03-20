@@ -34,7 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         custom:type="graphic"
-        custom:fillColor="@color/custom_color"
+        custom:indicatorColor="@color/custom_color"
         android:layout_weight="1">
 
         <TextView
