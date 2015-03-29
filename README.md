@@ -1,5 +1,5 @@
 # YLScrollView
-A smart custom ScrollView for Android, which has the ability to automatically measure your content length and decide whether a text-indicator or graphic-indicator is in need or not. Within the indicator, users are given a more visualised interface (compared with default Android ScrollView).
+A smart custom ScrollView for Android, which is able to measure your inside content length and decide whether a right side vertical text-indicator or graphic-indicator is in need or not. With this ScrollView, compared with default one, users are given a more visualised sign to be noticed that more content are hidden under the visiable part and they have to scroll down to view them.
 
 # Useage
 
