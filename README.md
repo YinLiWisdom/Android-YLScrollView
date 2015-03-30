@@ -15,7 +15,7 @@ https://github.com/YinLiWisdom/Android-YLScrollView/blob/master/APK/demo.apk
 
 It's also on Google Play:
 
-<a href="https://play.google.com/store/apps/details?id=com.afollestad.materialdialogssample">
+<a href="https://play.google.com/store/apps/details?id=com.yinli.yinli_ylscrollview&hl=en_GB">
   <img alt="Get it on Google Play"
        src="https://developer.android.com/images/brand/en_generic_rgb_wo_60.png" />
 </a>
