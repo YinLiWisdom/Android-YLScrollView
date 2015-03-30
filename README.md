@@ -9,6 +9,19 @@ A smart custom ScrollView for Android, which is able to measure your inside cont
 <img src="./screenshot/sample_3.png" width="230" />
 </p>
 
+# Sample Project
+This library comes with a demo project for you. You can download the latest demo APK from this link:
+
+
+It's also on Google Play:
+
+<a href="https://play.google.com/store/apps/details?id=com.afollestad.materialdialogssample">
+  <img alt="Get it on Google Play"
+       src="https://developer.android.com/images/brand/en_generic_rgb_wo_60.png" />
+</a>
+
+Having the demo project installed is a good way to be notified of new releases.
+
 # Useage
 
 Developed By
