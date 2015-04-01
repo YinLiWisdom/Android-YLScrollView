@@ -40,6 +40,7 @@ install {
 
                 // Add your description here
                 name 'A smart custom ScrollView for Android'
+                description 'A smart custom ScrollView for Android, which is able to measure your inside content length and decide whether a rightside vertical text-indicator or graphic-indicator is in need or not. With this smart container, compared with default Android ScrollView, users are given a more visualised notice that more content is hidden under the visible layout and the entire content can be viewed by scrolling.'
                 url siteUrl
 
                 // Set your license
@@ -99,7 +100,7 @@ bintray {
         name = "Android-YLScrollView"
         websiteUrl = siteUrl
         vcsUrl = gitUrl
-        licenses = ["Apache-2.0"]
+        licenses = ["MIT"]
         publish = true
     }
 }
