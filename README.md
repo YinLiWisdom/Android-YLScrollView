@@ -1,7 +1,7 @@
 # YLScrollView
 A smart custom ScrollView for Android, which is able to measure your inside content length and decide whether a rightside vertical text-indicator or graphic-indicator is in need or not. With this smart container, compared with default Android ScrollView, users are given a more visualised notice that more content is hidden under the visible layout and the entire content can be viewed by scrolling.
 
-# Screenshots
+## Screenshots
 <br/>
 <p align="center">
 <img src="./screenshot/sample_1.png" width="230" />
@@ -9,7 +9,7 @@ A smart custom ScrollView for Android, which is able to measure your inside cont
 <img src="./screenshot/sample_3.png" width="230" />
 </p>
 
-# Demo Project
+## Demo Project
 This library comes with a demo project for you. You can download the latest demo APK from this link:
 https://github.com/YinLiWisdom/Android-YLScrollView/blob/master/APK/demo.apk
 
@@ -22,7 +22,37 @@ It's also on Google Play:
 
 Having the demo project installed is a good way to be notified of new releases.
 
-# Useage
+## Useage
+### Step 1
+#### Gradle (jCenter)
+dependencies {
+    compile "com.yinli:ylscrollview:1.0.0"
+}
+
+#### Maven
+<dependency>
+	<groupId>com.yinli</groupId>
+	<artifactId>scrollview</artifactId>
+	<version>1.0.0</version>
+</dependency>
+
+### Step 2
+1. Add 'YLScrollView' into your XML layout as sample code below. You have to notice that 'YLScrollView' only allows one child view to be its content, so if you have much complicated childs rather than a simple 'TextView' please make sure you wrap them with a parent 'ViewGroup'. 
+'''java
+    <com.yinli.ylscrollview.YLScrollView
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        
+        <TextView
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.yinli.ylscrollview.YLScrollView>
+'''
+
+2. 
 
 Developed By
 ============
