@@ -34,7 +34,7 @@ dependencies {
 ```
 <dependency>
 	<groupId>com.yinli</groupId>
-	<artifactId>scrollview</artifactId>
+	<artifactId>ylscrollview</artifactId>
 	<version>1.0.0</version>
 </dependency>
 ```
