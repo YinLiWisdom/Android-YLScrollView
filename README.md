@@ -40,7 +40,7 @@ dependencies {
 ```
 
 ### Step 2
-1. Add `YLScrollView` into your project as the sample code below. You have to notice that `YLScrollView` only allows one child view to be its content, so if you have much complicated childs rather than a simple `TextView` please make sure you wrap them with a parent `ViewGroup`. 
+1. Add `YLScrollView` into your project as the sample code below. You have to notice that `YLScrollView` only allows one child view to be its content, so if you have much complicated children rather than a simple `TextView` please make sure you wrap them with a parent `ViewGroup`. 
 ```xml
     <com.yinli.ylscrollview.YLScrollView
         android:id="@+id/container"
