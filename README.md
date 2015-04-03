@@ -40,38 +40,38 @@ dependencies {
 ```
 
 ### Step 2
-* Add `YLScrollView` into your project as the sample code below. You have to notice that `YLScrollView` only allows one child view to be its content, so if you have much complicated children rather than a simple `TextView` please make sure you wrap them with a parent `ViewGroup`. 
-```xml
-    <com.yinli.ylscrollview.YLScrollView
-        android:id="@+id/container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        
-        <TextView
-            android:id="@+id/content"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+1. Add `YLScrollView` into your project as the sample code below. You have to notice that `YLScrollView` only allows one child view to be its content, so if you have much complicated children rather than a simple `TextView` please make sure you wrap them with a parent `ViewGroup`. 
+	```xml
+	    <com.yinli.ylscrollview.YLScrollView
+	        android:id="@+id/container"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent">
+	        
+	        <TextView
+	            android:id="@+id/content"
+	            android:layout_width="match_parent"
+	            android:layout_height="match_parent" />
+	
+	    </com.yinli.ylscrollview.YLScrollView>
+	```
+	
+2. `YLScrollView` also allows you to customize basic styles.
 
-    </com.yinli.ylscrollview.YLScrollView>
-```
+	1. Set indicator type
+		* XML: `custom:type="text"` or `custom:type="graphic"`
+		* Code: `ylScrollView.setIndicatorType(YLScrollView.IndicatorType.Graphic);`
 
-* `YLScrollView` also allows you to customize basic styles.
+	2. Set indicator color (text-indicator / graphic-indicator)
+		* XML: `custom:indicatorColor="@color/custom_color"`
+		* Code: `ylScrollView.setIndicatorColor(getResources().getColor(R.color.custom_color));`
 
-1. Set indicator type
-XML: `custom:type="text"` or `custom:type="graphic"`
-Code: `ylScrollView.setIndicatorType(YLScrollView.IndicatorType.Graphic);`
+	3. Set indicator size (text-indicator only)
+		* XML: `custom:textSize="XXsp"`
+		* Code: `ylScrollView.setTextSize(getResources().getDimension(R.dimen.custom_size));`
 
-2. Set indicator color (text-indicator / graphic-indicator)
-XML: `custom:indicatorColor="@color/custom_color"`
-Code: `ylScrollView.setIndicatorColor(getResources().getColor(R.color.custom_color));`
-
-3. Set indicator size (text-indicator only)
-XML: `custom:textSize="XXsp"`
-Code: `ylScrollView.setTextSize(getResources().getDimension(R.dimen.custom_size));`
-
-4. Set indicator text (text-indicator only)
-XML: `custom:text="XXXXXXXXX"`
-Code: `ylScrollView.setText(getResources().getString(R.string.custom_text));`
+	4. Set indicator text (text-indicator only)
+		* XML: `custom:text="XXXXXXXXX"`
+		* Code: `ylScrollView.setText(getResources().getString(R.string.custom_text));`
 
 Developed By
 ============
