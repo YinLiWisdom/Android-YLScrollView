@@ -54,7 +54,9 @@ dependencies {
 
     </com.yinli.ylscrollview.YLScrollView>
 ```
+
 2. `YLScrollView` also allows you to customize basic styles.
+
 * Set indicator type
 XML: custom:type="text" or custom:type="graphic"
 Code: ylScrollView.setIndicatorType(YLScrollView.IndicatorType.Graphic);
