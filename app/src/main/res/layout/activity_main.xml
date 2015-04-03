@@ -28,5 +28,4 @@
             android:layout_marginRight="15dp"
             android:text="@string/powered_tag_text"/>
     </LinearLayout>
-
 </LinearLayout>

@@ -178,6 +178,7 @@ public class YLScrollView extends FrameLayout {
 
     public void setIndicatorType(IndicatorType mType) {
         this.mType = mType;
+        invalidate();
     }
 
     @Override
@@ -233,15 +234,17 @@ public class YLScrollView extends FrameLayout {
 
             int containerHeight = getMeasuredHeight();
             View view = mScrollView.getChildAt(0);
-            int contentHeight = view.getMeasuredHeight();
-            indicatorVisibility = contentHeight > containerHeight ? VISIBLE : GONE;
-            switch (mType) {
-                case Text:
-                    mVerticalTextView.setVisibility(indicatorVisibility);
-                    break;
-                case Graphic:
-                    mVerticalGraphicView.setVisibility(indicatorVisibility);
-                    break;
+            if (view != null) {
+                int contentHeight = view.getMeasuredHeight();
+                indicatorVisibility = contentHeight > containerHeight ? VISIBLE : GONE;
+                switch (mType) {
+                    case Text:
+                        mVerticalTextView.setVisibility(indicatorVisibility);
+                        break;
+                    case Graphic:
+                        mVerticalGraphicView.setVisibility(indicatorVisibility);
+                        break;
+                }
             }
 
         }
