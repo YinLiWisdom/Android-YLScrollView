@@ -25,16 +25,19 @@ Having the demo project installed is a good way to be notified of new releases.
 ## Useage
 ### Step 1
 #### Gradle (jCenter)
+```
 dependencies {
     compile "com.yinli:ylscrollview:1.0.0"
 }
-
+```
 #### Maven
+```
 <dependency>
 	<groupId>com.yinli</groupId>
 	<artifactId>scrollview</artifactId>
 	<version>1.0.0</version>
 </dependency>
+```
 
 ### Step 2
 1. Add `YLScrollView` into your project as the sample code below. You have to notice that `YLScrollView` only allows one child view to be its content, so if you have much complicated childs rather than a simple `TextView` please make sure you wrap them with a parent `ViewGroup`. 
