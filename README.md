@@ -37,8 +37,8 @@ dependencies {
 </dependency>
 
 ### Step 2
-1. Add 'YLScrollView' into your XML layout as sample code below. You have to notice that 'YLScrollView' only allows one child view to be its content, so if you have much complicated childs rather than a simple 'TextView' please make sure you wrap them with a parent 'ViewGroup'. 
-'''java
+1. Add 'YLScrollView' with XML layout as the sample code below. You have to notice that 'YLScrollView' only allows one child view to be its content, so if you have much complicated childs rather than a simple 'TextView' please make sure you wrap them with a parent 'ViewGroup'. 
+```xml
     <com.yinli.ylscrollview.YLScrollView
         android:id="@+id/container"
         android:layout_width="match_parent"
@@ -50,9 +50,12 @@ dependencies {
             android:layout_height="match_parent" />
 
     </com.yinli.ylscrollview.YLScrollView>
-'''
+```
 
-2. 
+2. Add 'YLScrollView' programmatically.
+
+
+3.
 
 Developed By
 ============
