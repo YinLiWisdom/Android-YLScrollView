@@ -40,7 +40,7 @@ dependencies {
 ```
 
 ### Step 2
-	1. Add `YLScrollView` into your project as the sample code below. You have to notice that `YLScrollView` only allows one child view to be its content, so if you have much complicated children rather than a simple `TextView` please make sure you wrap them with a parent `ViewGroup`. 
+  1. Add `YLScrollView` into your project as the sample code below. You have to notice that `YLScrollView` only allows one child view to be its content, so if you have much complicated children rather than a simple `TextView` please make sure you wrap them with a parent `ViewGroup`. 
 ```xml
     <com.yinli.ylscrollview.YLScrollView
         android:id="@+id/container"
@@ -55,7 +55,7 @@ dependencies {
     </com.yinli.ylscrollview.YLScrollView>
 ```
 
-	2. `YLScrollView` also allows you to customize basic styles.
+  2. `YLScrollView` also allows you to customize basic styles.
 * Set indicator type
 XML: custom:type="text" or custom:type="graphic"
 Code: ylScrollView.setIndicatorType(YLScrollView.IndicatorType.Graphic);
