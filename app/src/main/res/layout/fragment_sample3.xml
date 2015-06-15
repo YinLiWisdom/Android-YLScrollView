@@ -13,7 +13,7 @@
     <com.yinli.ylscrollview.YLScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        custom:type="graphic"
+        custom:ylsv_type="graphic"
         android:layout_weight="1">
 
         <TextView
@@ -33,8 +33,8 @@
     <com.yinli.ylscrollview.YLScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        custom:type="graphic"
-        custom:indicatorColor="@color/custom_color"
+        custom:ylsv_type="graphic"
+        custom:ylsv_indicatorColor="@color/custom_color"
         android:layout_weight="1">
 
         <TextView

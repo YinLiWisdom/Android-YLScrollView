@@ -73,11 +73,11 @@ public class YLScrollView extends FrameLayout {
         /* Retrieve styles attributes */
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.YLScrollView, defStyle, 0);
         try {
-            mAnimType = typedArray.getInt(R.styleable.YLScrollView_animationType, defaultAnimType);
-            mText = typedArray.getString(R.styleable.YLScrollView_text);
-            mTextSize = typedArray.getDimension(R.styleable.YLScrollView_textSize, defaultTextSize);
-            mColor = typedArray.getColor(R.styleable.YLScrollView_indicatorColor, defaultTextColor);
-            mType = IndicatorType.fromValue(typedArray.getInteger(R.styleable.YLScrollView_type, defaultIndicatorType));
+            mAnimType = typedArray.getInt(R.styleable.YLScrollView_ylsv_animationType, defaultAnimType);
+            mText = typedArray.getString(R.styleable.YLScrollView_ylsv_text);
+            mTextSize = typedArray.getDimension(R.styleable.YLScrollView_ylsv_textSize, defaultTextSize);
+            mColor = typedArray.getColor(R.styleable.YLScrollView_ylsv_indicatorColor, defaultTextColor);
+            mType = IndicatorType.fromValue(typedArray.getInteger(R.styleable.YLScrollView_ylsv_type, defaultIndicatorType));
 
             if (mText == null) {
                 mText = defaultText;

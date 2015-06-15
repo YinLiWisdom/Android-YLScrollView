@@ -28,7 +28,7 @@ public class YLVerticalTextLabelView extends TextView{
         /* Retrieve styles attributes */
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.YLVerticalTextLabelView, defStyleAttr, 0);
         try {
-            isTopDown = typedArray.getBoolean(R.styleable.YLVerticalTextLabelView_topDown, false);
+            isTopDown = typedArray.getBoolean(R.styleable.YLVerticalTextLabelView_ylsv_topDown, false);
         } finally {
             typedArray.recycle();
         }

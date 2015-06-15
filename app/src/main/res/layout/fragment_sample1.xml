@@ -53,9 +53,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        custom:text="Please scroll me"
-        custom:indicatorColor="@color/custom_color"
-        custom:textSize="16sp">
+        custom:ylsv_text="Please scroll me"
+        custom:ylsv_indicatorColor="@color/custom_color"
+        custom:ylsv_textSize="16sp">
 
         <TextView
             android:layout_width="match_parent"
