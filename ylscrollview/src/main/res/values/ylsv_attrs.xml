@@ -2,26 +2,26 @@
 <resources>
     <declare-styleable name="YLScrollView">
         <!-- Animation type of indicator -->
-        <attr name="animationType" format="enum">
+        <attr name="ylsv_animationType" format="enum">
             <enum name="none" value="0" />
             <enum name="slide" value="1" />
             <enum name="fade" value="2" />
         </attr>
         <!-- Display type of indicator -->
-        <attr name="type" format="enum" >
+        <attr name="ylsv_type" format="enum" >
             <enum name="text" value="0" />
             <enum name="graphic" value="1" />
         </attr>
         <!-- Size of the indicator text -->
-        <attr name="textSize" format="dimension"/>
+        <attr name="ylsv_textSize" format="dimension"/>
         <!-- Content of the indicator text -->
-        <attr name="text" format="string"/>
+        <attr name="ylsv_text" format="string"/>
         <!-- Color of the indicator for both text and graphic -->
-        <attr name="indicatorColor" format="color"/>
+        <attr name="ylsv_indicatorColor" format="color"/>
     </declare-styleable>
 
     <declare-styleable name="YLVerticalTextLabelView">
         <!-- Identity of Text begins from top or bottom -->
-        <attr name="topDown" format="boolean" />
+        <attr name="ylsv_topDown" format="boolean" />
     </declare-styleable>
 </resources>
