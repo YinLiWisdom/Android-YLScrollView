@@ -27,7 +27,7 @@ Having the demo project installed is a good way to be notified of new releases.
 #### Gradle (jCenter)
 ```
 dependencies {
-    compile "com.yinli:ylscrollview:1.0.0"
+    compile "com.yinli:ylscrollview:1.1.0"
 }
 ```
 #### Maven
@@ -35,7 +35,7 @@ dependencies {
 <dependency>
 	<groupId>com.yinli</groupId>
 	<artifactId>ylscrollview</artifactId>
-	<version>1.0.0</version>
+	<version>1.1.0</version>
 </dependency>
 ```
 
@@ -58,19 +58,19 @@ dependencies {
 2. `YLScrollView` also allows you to customize basic styles.
 
 	1. Set indicator type
-		* XML: `custom:type="text"` or `custom:type="graphic"`
+		* XML: `custom:ylsv_type="text"` or `custom:ylsv_type="graphic"`
 		* Code: `ylScrollView.setIndicatorType(YLScrollView.IndicatorType.Graphic);`
 
 	2. Set indicator color (text-indicator / graphic-indicator)
-		* XML: `custom:indicatorColor="@color/custom_color"`
+		* XML: `custom:ylsv_indicatorColor="@color/custom_color"`
 		* Code: `ylScrollView.setIndicatorColor(getResources().getColor(R.color.custom_color));`
 
 	3. Set indicator size (text-indicator only)
-		* XML: `custom:textSize="XXsp"`
+		* XML: `custom:ylsv_textSize="XXsp"`
 		* Code: `ylScrollView.setTextSize(getResources().getDimension(R.dimen.custom_size));`
 
 	4. Set indicator text (text-indicator only)
-		* XML: `custom:text="XXXXXXXXX"`
+		* XML: `custom:ylsv_text="XXXXXXXXX"`
 		* Code: `ylScrollView.setText(getResources().getString(R.string.custom_text));`
 
 Developed By
